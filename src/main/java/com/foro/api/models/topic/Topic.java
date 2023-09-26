@@ -2,6 +2,7 @@ package com.foro.api.models.topic;
 
 import com.foro.api.models.course.Course;
 import com.foro.api.models.Status;
+import com.foro.api.models.topic.DTO.UpdateDataTopic;
 import com.foro.api.models.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,7 +37,17 @@ public class Topic {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_course")
     private Course course;
+    private Boolean active;
+
+    public void updateTopic(UpdateDataTopic request) {
+        if (request.title() != null) this.title = request.title();
+        if (request.message() != null) this.message = request.message();
+        this.data = LocalDateTime.now();
+    }
 
 
+    public void deactivateTopic() {
+        this.active = false;
+    }
 
 }

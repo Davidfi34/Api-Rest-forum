@@ -3,6 +3,7 @@ package com.foro.api.controllers;
 import com.foro.api.models.topic.DTO.GetTopics;
 import com.foro.api.models.topic.DTO.TopicDataResponse;
 import com.foro.api.models.topic.DTO.TopicRegistration;
+import com.foro.api.models.topic.DTO.UpdateDataTopic;
 import com.foro.api.models.topic.Topic;
 import com.foro.api.repository.TopicRepository;
 import com.foro.api.services.SaveTopicRepository;
@@ -56,7 +57,7 @@ public class TopicController {
 
     @GetMapping
     public ResponseEntity<Page<GetTopics>> getAllTopic(@PageableDefault(size = 10) Pageable pages){
-        return ResponseEntity.ok(topicRepository.findAll(pages).map(GetTopics::new));
+        return ResponseEntity.ok(topicRepository.findByActiveTrue(pages).map(GetTopics::new));
     }
 
 
@@ -72,6 +73,19 @@ public class TopicController {
         GetTopics getTopics= new GetTopics(topic);
         return ResponseEntity.ok(getTopics);
     }
+
+
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity<TopicDataResponse> updateTopic(@RequestBody @Valid UpdateDataTopic updateDataTopic) {
+        Topic topic = topicRepository.getReferenceById(updateDataTopic.id());
+        topic.updateTopic(updateDataTopic);
+        TopicDataResponse topicDataResponse = new TopicDataResponse(topic);
+        return ResponseEntity.ok(topicDataResponse);
+    }
+
+
 
 
 }

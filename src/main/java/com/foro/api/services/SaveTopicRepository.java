@@ -40,7 +40,7 @@ public class SaveTopicRepository {
         Course course = courseRepository.findById(topicRegistration.id_course()).get();
 
         Topic topic = new Topic(null,topicRegistration.title(),topicRegistration.message(),
-                LocalDateTime.now(), Status.NO_RESPONDED,user, course);
+                LocalDateTime.now(), Status.NO_RESPONDED,user, course,true);
 
         topicRepository.save(topic);
 
