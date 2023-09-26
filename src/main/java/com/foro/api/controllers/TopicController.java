@@ -43,7 +43,6 @@ public class TopicController {
     public ResponseEntity<TopicDataResponse> topicRegister (@RequestBody @Valid TopicRegistration topicRegistration,
                                                            UriComponentsBuilder uriComponentsBuilder){
         TopicDataResponse topic = saveTopicRepository.saveTopic(topicRegistration);
-
         URI url = uriComponentsBuilder.path("/topic/{id}").buildAndExpand(topic.id()).toUri();
         return ResponseEntity.created(url).body(topic);
     }
@@ -52,7 +51,7 @@ public class TopicController {
      * method to obtain all the topics
      * @author David Figuerero
      * @param pages
-     * @return Page<topic>
+     * @return Page<GetTopics>
      */
 
     @GetMapping
@@ -65,7 +64,7 @@ public class TopicController {
      * method get by ID topics
      * @author David Figuerero
      * @param id
-     * @return topic
+     * @return GetTopics
      */
     @GetMapping(path = "/{id}")
     public ResponseEntity<GetTopics> getByIdTopic(@PathVariable Long id){
@@ -74,8 +73,12 @@ public class TopicController {
         return ResponseEntity.ok(getTopics);
     }
 
-
-
+    /**
+     * topic update method
+     * @author David Figuerero
+     * @param updateDataTopic
+     * @return TopicDataResponse
+     */
     @PutMapping
     @Transactional
     public ResponseEntity<TopicDataResponse> updateTopic(@RequestBody @Valid UpdateDataTopic updateDataTopic) {
@@ -85,6 +88,21 @@ public class TopicController {
         return ResponseEntity.ok(topicDataResponse);
     }
 
+
+    /**
+     * method of logical deletion of topic,
+     * modification of attribute active=false
+     * @author David Figuerero
+     * @param id
+     * @return ResponseEntity
+     */
+    @DeleteMapping(path ="/{id}")
+    @Transactional
+    public ResponseEntity deleteTopic(@PathVariable Long id) {
+        Topic topic = topicRepository.getReferenceById(id);
+        topic.deactivateTopic();
+        return ResponseEntity.noContent().build();
+    }
 
 
 
