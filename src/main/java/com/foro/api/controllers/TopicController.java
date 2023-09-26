@@ -3,6 +3,7 @@ package com.foro.api.controllers;
 import com.foro.api.models.topic.DTO.GetTopics;
 import com.foro.api.models.topic.DTO.TopicDataResponse;
 import com.foro.api.models.topic.DTO.TopicRegistration;
+import com.foro.api.models.topic.Topic;
 import com.foro.api.repository.TopicRepository;
 import com.foro.api.services.SaveTopicRepository;
 import jakarta.transaction.Transactional;
@@ -58,6 +59,19 @@ public class TopicController {
         return ResponseEntity.ok(topicRepository.findAll(pages).map(GetTopics::new));
     }
 
+
+    /**
+     * method get by ID topics
+     * @author David Figuerero
+     * @param id
+     * @return topic
+     */
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<GetTopics> getByIdTopic(@PathVariable Long id){
+        Topic topic = topicRepository.getReferenceById(id);
+        GetTopics getTopics= new GetTopics(topic);
+        return ResponseEntity.ok(getTopics);
+    }
 
 
 }
