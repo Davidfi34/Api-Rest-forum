@@ -14,4 +14,5 @@ public class UserController {
     public void userCreate(@RequestBody UserRegistration userRegistration){
         System.out.println(userRegistration);
     }
+
 }
