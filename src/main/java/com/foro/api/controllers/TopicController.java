@@ -7,6 +7,8 @@ import com.foro.api.models.topic.DTO.UpdateDataTopic;
 import com.foro.api.models.topic.Topic;
 import com.foro.api.repository.TopicRepository;
 import com.foro.api.services.SaveTopicRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 
 import jakarta.validation.Valid;
@@ -22,6 +24,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/topic")
+@SecurityRequirement(name = "bearer-key")
 public class TopicController {
 
     @Autowired
@@ -31,13 +34,13 @@ public class TopicController {
 
 
     /**
-     *  topic registration method
      *  @author David Figuerero
      * @param topicRegistration
      * @param uriComponentsBuilder
      * @return TopiDataResponse
      */
 
+    @Operation(summary = "topic registration method")
     @PostMapping
     @Transactional
     public ResponseEntity<TopicDataResponse> topicRegister (@RequestBody @Valid TopicRegistration topicRegistration,
@@ -48,12 +51,11 @@ public class TopicController {
     }
 
     /**
-     * method to obtain all the topics
      * @author David Figuerero
      * @param pages
      * @return Page<GetTopics>
      */
-
+    @Operation(summary = "method to obtain all the topics")
     @GetMapping
     public ResponseEntity<Page<GetTopics>> getAllTopic(@PageableDefault(size = 10) Pageable pages){
         return ResponseEntity.ok(topicRepository.findByActiveTrue(pages).map(GetTopics::new));
@@ -61,11 +63,12 @@ public class TopicController {
 
 
     /**
-     * method get by ID topics
      * @author David Figuerero
      * @param id
      * @return GetTopics
      */
+
+    @Operation(summary = "method get by ID topics")
     @GetMapping(path = "/{id}")
     public ResponseEntity<GetTopics> getByIdTopic(@PathVariable Long id){
         Topic topic = topicRepository.getReferenceById(id);
@@ -74,11 +77,11 @@ public class TopicController {
     }
 
     /**
-     * topic update method
      * @author David Figuerero
      * @param updateDataTopic
      * @return TopicDataResponse
      */
+    @Operation(summary = "topic update method")
     @PutMapping
     @Transactional
     public ResponseEntity<TopicDataResponse> updateTopic(@RequestBody @Valid UpdateDataTopic updateDataTopic) {
@@ -90,12 +93,12 @@ public class TopicController {
 
 
     /**
-     * method of logical deletion of topic,
      * modification of attribute active=false
      * @author David Figuerero
      * @param id
      * @return ResponseEntity
      */
+    @Operation(summary = "method of logical deletion of topic")
     @DeleteMapping(path ="/{id}")
     @Transactional
     public ResponseEntity deleteTopic(@PathVariable Long id) {
