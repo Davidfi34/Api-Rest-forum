@@ -12,6 +12,10 @@ Our API is built using the following technologies:
 - **Authentication:** For authentication, we use the `java-jwt` dependency from Auth0 (version 4.2.0).
 - **Documentation:** To document our API, we employ the Swagger UI platform. https://springdoc.org/
 
+![imagen](https://github.com/Davidfi34/Api-Rest-forum/assets/46968835/8bf52096-6328-43ad-973d-e8c6cbbb8bad)
+
+
+
 
 ## Features
 Our API will focus on "topics" and provide the following functionalities to users:
