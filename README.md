@@ -3,6 +3,16 @@
 ## Introduction
 The Alura Course Forum is a magical space where students of the Alura platform can post their questions regarding the available courses. This place is filled with learning opportunities and collaboration among students, instructors, and moderators.
 
+## Technology Stack
+Our API is built using the following technologies:
+
+- **Java 17:** We leverage the power of Java 17 to build a robust backend.
+- **Spring Boot 3:** We rely on Spring Boot 3 to create a flexible and efficient application.
+- **MySQL:** Our database of choice for data storage.
+- **Authentication:** For authentication, we use the `java-jwt` dependency from Auth0 (version 4.2.0).
+- **Documentation:** To document our API, we employ the Swagger UI platform. https://springdoc.org/
+
+
 ## Features
 Our API will focus on "topics" and provide the following functionalities to users:
 
