@@ -1,29 +1,29 @@
-# API REST para el Foro de Cursos Alura
+# RESTful API for Alura Course Forum
 
-## Introducción
-El Foro de Cursos Alura es un espacio mágico donde los estudiantes de la plataforma Alura pueden plantear sus preguntas sobre los cursos disponibles. Este lugar está lleno de oportunidades de aprendizaje y colaboración, involucrando a estudiantes, profesores y moderadores.
+## Introduction
+The Alura Course Forum is a magical space where students of the Alura platform can post their questions regarding the available courses. This place is filled with learning opportunities and collaboration among students, instructors, and moderators.
 
-## Funcionalidades
-Nuestra API se centrará en los "tópicos" y proporcionará las siguientes funcionalidades a los usuarios:
+## Features
+Our API will focus on "topics" and provide the following functionalities to users:
 
-1. **Crear un nuevo tópico:** Los usuarios podrán publicar nuevas preguntas o discusiones relacionadas con los cursos de Alura.
+1. **Create a new topic:** Users can post new questions or discussions related to Alura courses.
 
-2. **Mostrar todos los tópicos creados:** Se podrán ver todos los tópicos existentes en el foro de cursos.
+2. **Display all created topics:** All existing topics in the course forum can be viewed.
 
-3. **Mostrar un tópico específico:** Se podrá acceder a un tópico específico para ver sus detalles y respuestas.
+3. **View a specific topic:** Access to a specific topic to view its details and responses.
 
-4. **Actualizar un tópico:** Los usuarios podrán modificar y actualizar sus propios tópicos relacionados con cursos.
+4. **Update a topic:** Users can modify and update their own topics related to courses.
 
-5. **Eliminar un tópico:** En caso de que ya no sea necesario, se podrán eliminar tópicos relacionados con cursos.
+5. **Delete a topic:** In case it is no longer needed, topics related to courses can be deleted.
 
-## CRUD y Arquitectura REST
-Nuestro objetivo es proporcionar un conjunto completo de operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para administrar tópicos relacionados con cursos. Estas operaciones se alinearán con las mejores prácticas del modelo arquitectónico REST (Representational State Transfer).
+## CRUD and REST Architecture
+Our goal is to provide a comprehensive set of CRUD operations (Create, Read, Update, Delete) for managing topics related to Alura courses. These operations will adhere to the best practices of the REST (Representational State Transfer) architectural model.
 
-## Resumen
-Al final de nuestro desarrollo en esta etapa, tendremos una API REST completamente funcional con las siguientes características:
+## Summary
+At the end of our development in this phase, we will have a fully functional RESTful API with the following features:
 
-- Implementación de rutas siguiendo las mejores prácticas REST.
-- Validaciones de datos según las reglas de negocio.
-- Utilización de una base de datos para la persistencia de la información.
+- Implementation of routes following REST best practices.
+- Data validations according to business rules.
+- Utilization of a database for information persistence.
 
-Estamos emocionados por embarcarnos en este viaje para construir una API que permita a los usuarios disfrutar al máximo de su experiencia en el Foro de Cursos Alura. ¡Bienvenidos a bordo!
+
