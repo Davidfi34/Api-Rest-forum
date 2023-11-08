@@ -11,6 +11,7 @@ Our API is built using the following technologies:
 - **MySQL:** Our database of choice for data storage.
 - **Authentication:** For authentication, we use the `java-jwt` dependency from Auth0 (version 4.2.0).
 - **Documentation:** To document our API, we employ the Swagger UI platform. https://springdoc.org/
+- **Swagger-link:** https://api-forum-d92g.onrender.com/swagger-ui/index.html
 
 ![imagen](https://github.com/Davidfi34/Api-Rest-forum/assets/46968835/8bf52096-6328-43ad-973d-e8c6cbbb8bad)
 
